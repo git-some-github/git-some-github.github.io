@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>Technology for Writers | Quick and Dirty Guide to LaTeX</title>
+   <link rel="stylesheet" href="/css/style.css" type="text/css" media="screen, projection" />
+   <link href="http://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Alegreya:700" rel="stylesheet" type="text/css" />
+   
+</head>
+<body>
+  
+  <div id="header" class="grid">
+  	<h1><a href="/">Technology for Writers</a></h1>
+  </div>
+  <div class="grid">
+     <div class="col-2-3">
+             
+       <div id="post">
+  <h2>Quick and Dirty Guide to LaTeX</h2>
+  <div id="date">published 15 Aug 2013</div>
+  <p>Once you&#8217;ve been convinced of the superiority of the LaTeX typesetting system over word processors, you&#8217;ll want to get to writing with it as soon as possible. Unfortunately, a google search can quickly reveal LaTeX to sport quite the learning curve. But don&#8217;t fret! This brief tutorial can get you writing with LaTeX in about half an hour. While LaTeX can be <em>very</em> complex (as it is quite feature-rich), the basics of it are pretty easy to get your head around.</p>
+
+<p>First things first: the software. To run LaTeX, you first need to install the appropriate software, which includes a TeX distribution as well as a good text editor. Refer to the resources page for a listing of some software links for various platforms. Most of the software is either open source or shareware (i.e., free or pretty cheap)</p>
+
+<p>LaTeX is much like HTML - you define the structure of your document via commands. Commands are preceded by a backslash, and are made up of lowercase letters (e.g., &#8220;\clearpage&#8221;). Many LaTeX commands take one or more arguments. Arguments are placed in curly braces (e.g., &#8220;\chapter{Introduction}&#8221;). You can make a LaTeX document with any standard text editor, such as GNU emacs (for Linux) or WinEdt (for Windows), and save it as a .tex document.</p>
+
+<h2 id='basic_document_structure'>Basic document structure</h2>
+
+<p>You begin the latex document with a document class declaration <code>\documentclass{argument}</code>. There are four default classes available:</p>
+
+<ul>
+<li>report (for business, legal, scientific, etc., reports)</li>
+
+<li>article (for journal articles, conference papers, etc.)</li>
+
+<li>book (for books and theses)</li>
+
+<li>letter (self-explanatory)</li>
+</ul>
+
+<p>You can also add other options here (all options in brackets <code>[ ]</code> and separated by commas) such as:</p>
+
+<ul>
+<li><strong>font size</strong>: 10pt (default), 11pt, or 12pt</li>
+
+<li><strong>paper size</strong>: letter size is the default - in which case you would not need to add anything - but if you needed to select A4 paper size (a4paper), you could do that here</li>
+
+<li><strong>double-sided</strong> (twoside - default for books and reports) or <strong>single-sided</strong> (oneside - default for articles and letters) printing</li>
+
+<li><strong>separate title page</strong>: (titlepage - default for books and reports)</li>
+</ul>
+
+<p>After your document class declaration, you enclose your document within the commands: \begin{document}&#8230;\end{document} Right after your \begin{document} declaration, you can put your document title, author, and date. So, a sample LaTeX document would start out looking like this:</p>
+<div class='highlight'><pre><code class='tex'>	<span class='k'>\documentclass</span><span class='na'>[12pt,a4paper,twoside]</span><span class='nb'>{</span>article<span class='nb'>}</span>
+	<span class='k'>\begin</span><span class='nb'>{</span>document<span class='nb'>}</span>
+	<span class='k'>\title</span><span class='nb'>{</span>My Brilliant Article<span class='nb'>}</span>
+	<span class='k'>\author</span><span class='nb'>{</span>Sally Bright<span class='nb'>}</span>
+	<span class='k'>\date</span><span class='nb'>{</span>February 2004<span class='nb'>}</span>
+	<span class='k'>\maketitle</span>
+	<span class='k'>\end</span><span class='nb'>{</span>document<span class='nb'>}</span>
+	
+</code></pre></div>
+<p>You can add a table of contents here if you want - LaTeX uses to information from your sectioning commands to automatically generate one. Just use the following command after <code>\maketitle</code>:</p>
+<div class='highlight'><pre><code class='tex'>	<span class='k'>\tableofcontents</span>
+</code></pre></div>
+<p>You can also include an abstract at the beginning of your document (a summary of your article or whatnot). You enclose your abstract within the commands:</p>
+<div class='highlight'><pre><code class='tex'>	<span class='k'>\begin</span><span class='nb'>{</span>abstract<span class='nb'>}</span>...<span class='k'>\end</span><span class='nb'>{</span>abstract<span class='nb'>}</span>.
+</code></pre></div>
+<p>Note that you can also include comments in your LaTeX document: LaTeX ignores anything on a line after the &#8221;%&#8221; symbol.</p>
+
+<h2 id='paragraphs_and_sections'>Paragraphs and sections</h2>
+
+<p>You define a new paragraph via a blank line in the LaTeX document (note: the finished document will not include an actual blank line in it!)</p>
+
+<p>LaTeX has several levels of sectioning to help structure your document:</p>
+
+<ul>
+<li><strong>part</strong> (not in articles or letters): <code>\part</code></li>
+
+<li><strong>chapter</strong> (not in articles or letters): <code>\chapter</code></li>
+
+<li><strong>section</strong> (not in letters): <code>\section</code></li>
+
+<li><strong>subsection</strong> (not in letters): <code>\subsection</code></li>
+
+<li><strong>titled paragraph</strong> (not in letters): <code>\paragraph</code></li>
+
+<li><strong>titled subparagraph</strong> (not in letters): <code>\subparagraph</code></li>
+</ul>
+
+<p>The title of each of these sections goes in curly braces after the command (e.g., <code>\chapter{The Very Long Journey Home}</code>). You also have the option of citing an alternate name (perhaps a shorter one) that would appear in the table of contents. Put the alternate name in brackets (e.g., <code>\chapter[Journey Home]{The Very Long Journey Home}</code>. LaTeX automatically numbers your sections - there are arguments for different options concerning numbering, but I won&#8217;t include them here. To learn more about these options, please check out the further resources listed.</p>
+
+<h2 id='font_styles'>Font styles</h2>
+
+<p>LaTeX automatically sets the font for you, but you can specify these additional font styles within your document (putting your styled text in the curly braces):</p>
+
+<ul>
+<li><code>\emph{…}</code>: italics</li>
+
+<li><code>\texttt{…}</code>: fixed-width teletype-like font (like the code font on this page)</li>
+
+<li><code>\textsf{…}</code>: sans-serif font&#8230;don&#8217;t know what you would use that for, but here it is</li>
+
+<li><code>\textbf{…}</code>: boldface font</li>
+</ul>
+
+<h2 id='lists'>Lists</h2>
+
+<p>There are four different types of lists in LaTeX:</p>
+
+<ul>
+<li><strong>arbitrary lists</strong>: a bulleted list where order is unimportant. To create such a list, enclose your list within the commands <code>\begin{itemize}...end{itemize}</code>, and preface each item with: <code>\item</code>.</li>
+
+<li><strong>enumerated lists</strong>: a numbered list. To create an enumerated list, enclose your list in <code>\begin{enumerate}...\end{enumerate}</code>, and preface each list item with: <code>\item</code>.</li>
+
+<li><strong>descriptive list</strong>: composed of subheadings followed by one or more indented paragraphs. To create a descriptive list, enclose your list in <code>\begin{description}...\end{description}</code> and preface each list item with: <code>\item</code>.</li>
+</ul>
+
+<p>Note that you can also make nested lists by defining another list environment within a list environment. LaTeX will automatically nest the list for you and make an alternate bullet or numbering scheme. There are default number schemes that you can change if you&#8217;d like, but I&#8217;m not going to be getting into that here.</p>
+
+<h2 id='footnotes_and_endnotes'>Footnotes and endnotes</h2>
+
+<p>To insert a footnote into your document, use the command <code>\footnote</code>, followed by the actual note in curly braces. LaTeX will automatically number the footnote and place the text in braces at the bottom of the page. The numbers reset at the start of each chapter, but you can override this default.</p>
+
+<p>If you want to use endnotes instead of footnotes (where all the notes are placed at the end of your document, rather than at the bottom of the page), then you need to use a package called &#8220;endnote&#8221;.</p>
+
+<h2 id='quotations'>Quotations</h2>
+
+<p>Longer quotations that you would like to be indented from the surrounding text as a separate paragraph can be done by enclosing your quotation within the quotation environment:</p>
+<div class='highlight'><pre><code class='tex'>	<span class='k'>\begin</span><span class='nb'>{</span>quotation<span class='nb'>}</span>...<span class='k'>\end</span><span class='nb'>{</span>quotation<span class='nb'>}</span>
+	
+</code></pre></div>
+<p>If you want the quotation in a smaller font, put \small after the quotation environment declaration (i.e. <code>\begin{quotation}\small)</code>.</p>
+
+<h2 id='crossreferencing_and_blibliographic_citations'>Cross-referencing and blibliographic citations</h2>
+
+<p>You can label any part of your document, and then refer to that label in any other part of the document, and LaTeX will fill in the cross-reference information. Label a part of you document with an arbitrary name by using the command: <code>\label{name}</code>. To make a cross-reference to that part the document, refer to the name with: <code>\ref{name}</code>. LaTeX will fill in the chapter or section number of the referred document section. If you&#8217;d like it to fill in the page number of the referred section, use the command: <code>\pageref</code>.</p>
+
+<p>You use this same type of method to refer to make bibliographic citations. A program called BibTeX manages bibliographic references - you make a BibTeX file, with all of your bibliographic reference information, and then you can refer to any of those references via the following command: <code>\cite{citename}</code>. This puts a cross-reference number in brackets. There are other citation formats available in other packages, as well (see additional resources for more information on that).</p>
+
+<p>Your BibTeX file is essentially a database of all your bibliographic references. You can make this file in a text editor and save it with the .bib extension. Your bibliographic entries must adhere to a certain format, the specifics of which are beyond the scope of this document (see the resources for more information). But, here is an example for an entry that may help get you started:</p>
+
+<pre><code>@book{kane:sfw,
+title = {The Significance of Free Will},
+author = {Robert Kane},
+publisher = {Oxford University Press},
+year = {1998},
+address = {Oxford}
+}</code></pre>
+
+<p>A couple of BibTeX generators &amp; databases</p>
+
+<ul>
+<li>pybliographer: a nice gui bibtex manager for linux</li>
+
+<li>bibster: &#8220;a Java-based system which assists researchers in managing, searching, and sharing bibliographic metadata (e.g. from BibTeX files) in a peer-to-peer network&#8221;</li>
+
+<li>qcite: an online bibliography organizer - you can export your database as a bibtex file online bibtex generator</li>
+</ul>
+
+<p>To integrate your bib file into the LaTeX document, put the following lines towards the end of your document:</p>
+<div class='highlight'><pre><code class='tex'>	<span class='k'>\bibliography</span><span class='nb'>{</span>bibfilename<span class='nb'>}</span>
+	<span class='k'>\bibliographystyle</span><span class='nb'>{</span>ieeetr<span class='nb'>}</span>
+</code></pre></div>
+<p>The argument for the <code>\bibliography</code> command is the name of your BibTeX file, without the .bib extension. The argument for the bibliographystyle is the name of the bibliography style that you&#8217;re using. If you don&#8217;t know the different styles available to you, try &#8220;plain&#8221;.</p>
+
+<p>To incorporate this information properly into your document, I&#8217;ve found you need to do the following (if anyone knows of a simpler way to do this, please let me know):</p>
+
+<ul>
+<li>Compile your tex document - you may get errors but that&#8217;s okay. The compilation process produces an .aux file that&#8217;s needed by the second step.</li>
+
+<li>Run the following command:bibtex texfilename (without the .tex extension). This does something to mesh your bib file with the LaTeX document.</li>
+</ul>
+
+<h2 id='compiling_your_document'>Compiling your document</h2>
+
+<p>Once you&#8217;re finished making your .tex document, then you can compile it - which typesets your document according to the commands within the tex file and exports it as a .dvi or .pdf file (note that you have to have LaTeX installed on your system - please look at additional resources if you need to figure out how to go about getting the program). You can then open (and print) your beautifully typeset document with the appropriate viewer.</p>
+
+<p>You can compile your document one of two ways: either through the text editor you are using, or via command line. Techniques for compiling via text editor will vary. For compiling via command line, you can use <code>pdflatex filename</code>, which will export your typeset file as a .pdf document, or <code>latex filename</code>, which will export your file as a .dvi document.</p>
+
+<p>If your .tex document contains typos of LaTeX commands, then your document will probably not compile correctly (or may not compile at all, depending on the extent of the errors), and you will be presented with some error messages, at which point you will have to open up your tex file and fix the problem before attempting to compile again.</p>
+</div>
+      
+     </div>
+      
+      <div id="sidebar" class="col-1-3">
+      <h2>About Me</h2>
+      <img src="/images/portrait.jpg" alt="portrait" width=75/>
+      <p class="about">Hey there! My name is Candace, and live in Boulder, Colorado. I dig Macs, Unix, and Nethack. I have an unhealthy addiction to Turkish coffee and Paella. Questions? Comments? Hit me up on Twitter <a href="#">@candace77</a> or email me at <a href="#">candace77@gmail.com</a>.</p>
+  
+      <h2>Categories</h2>
+      <ul>
+      
+          <li><a href="/category/latex">latex</a></li>
+      
+      </ul>
+      </div>
+ </div>
+ 
+ <div id="footer" class="grid">
+      
+		&copy; 2013
+
+</div>
+
+  </div>
+
+</body>
+</html>
