@@ -8,7 +8,7 @@ Once you've been convinced of the superiority of the LaTeX typesetting system ov
 
 First things first: the software. To run LaTeX, you first need to install the appropriate software, which includes a TeX distribution as well as a good text editor. Refer to the resources page for a listing of some software links for various platforms. Most of the software is either open source or shareware (i.e., free or pretty cheap)
 
-LaTeX is much like HTML - you define the structure of your document via commands. Commands are preceded by a backslash, and are made up of lowercase letters (e.g., "\clearpage"). Many LaTeX commands take one or more arguments. Arguments are placed in curly braces (e.g., "\chapter{Introduction}"). You can make a LaTeX document with any standard text editor, such as GNU emacs (for Linux) or WinEdt (for Windows), and save it as a .tex document.
+LaTeX is alot like HTML - you define the structure of your document with a command syntax similar to the HTML markup language. These commands are preceded by a backslash, and are made up of lowercase letters (e.g., "\clearpage"). Many LaTeX commands take one or more arguments. Arguments are placed in curly braces (e.g., "\chapter{Introduction}"). You can make a LaTeX document with any standard text editor, such as GNU emacs (for Linux) or WinEdt (for Windows), and save it as a .tex document.
 
 ## Basic document structure
 
